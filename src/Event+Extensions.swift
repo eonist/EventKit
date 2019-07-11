@@ -25,7 +25,6 @@ extension Event{
     func assert(_ type:String,_ origin:AnyObject?) -> Bool{
         return self.type == type && self.origin === origin
     }
-    
     /**
      * Convenience method for asserting event target
      */
@@ -36,8 +35,8 @@ extension Event{
      * Assert if child has ancestry to PARAM: parent
      * NOTE: This way we don't have to store the entire stack in the event.
      */
-    func isChildOf(_ parent:NSView?) -> Bool {
-        if let origin:NSView = self.origin as? NSView {
+    func isChildOf(_ parent:View?) -> Bool {
+        if let origin:View = self.origin as? View {
             return origin.hasParent(parent)
         }
         return false
